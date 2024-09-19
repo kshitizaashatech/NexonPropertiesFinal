@@ -153,7 +153,10 @@
                                                     name="submit">Log in</button>
                                             </div>
                                         </form>
-                                        <a href="/register" class="text-center">I don't have a membership</a>
+                                        <a href="/register" class="text-center">Don't have account? Create One</a>
+                                        <a href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                </a>
                                     </div>
                                 </div>
                             </div>

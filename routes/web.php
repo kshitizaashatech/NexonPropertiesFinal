@@ -37,7 +37,8 @@ use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\Admin\AboutDescriptionController;
-
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 
 Auth::routes();
 
@@ -256,3 +257,8 @@ Route::prefix('services')->name('services.')->group(function () {
     Route::post('update', [ServiceController::class, 'update'])->name('update');
     Route::get('delete/{id}', [ServiceController::class, 'destroy'])->name('destroy');
 });
+
+Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');

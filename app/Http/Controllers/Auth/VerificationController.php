@@ -41,7 +41,7 @@ class VerificationController extends Controller
     public function verify(Request $request)
     {
         $user = $request->user();
-    
+        
         // Check if the user has already verified their email
         if ($user->hasVerifiedEmail()) {
             Log::info('User attempted to verify an already verified email: ', ['user' => $user->email]);
@@ -53,12 +53,19 @@ class VerificationController extends Controller
             event(new Verified($user));
             Log::info('User email verified successfully: ', ['user' => $user->email]);
     
+            // Check if the user is an admin (you can replace this condition based on your implementation)
+            if ($user->isAdmin()) {  // Assuming there's an isAdmin method or you can check the user type here
+                return redirect()->route('admin.dashboard')->with('verified', true)->with('message', 'Your email has been successfully verified.');
+            }
+    
+            // Redirect to default path if not an admin
             return redirect($this->redirectPath())->with('verified', true)->with('message', 'Your email has been successfully verified.');
         } else {
             Log::error('Email verification failed for user: ', ['user' => $user->email]);
             return redirect()->route('verification.notice')->with('error', 'Your email could not be verified. Something went wrong.');
         }
     }
+    
     
 
     /**
