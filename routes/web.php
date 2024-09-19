@@ -163,7 +163,14 @@ Route::prefix('/admin')->name('admin.')->middleware(['web', 'auth','ensure.email
         Route::get('edit/{id}', [PermissionsController::class, 'edit'])->name('edit');
         Route::post('update', [PermissionsController::class, 'update'])->name('update');
         Route::get('delete/{id}', [PermissionsController::class, 'destroy'])->name('destroy');
+
+
     });
+
+    Route::put('property/{id}/update-images', [PropertyController::class, 'updateImages'])->name('property.updateImages');
+
+
+
     Route::resource('services', ServiceController::class);
 
     Route::resource('favicons', FaviconController::class);

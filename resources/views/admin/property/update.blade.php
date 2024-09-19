@@ -185,40 +185,10 @@
                                 value="{{ old('rental_period', $property->rental_period) }}">
                         </div>
 
-                        <!-- Main Image Upload -->
-                        <div class="form-group mb-3">
-                            <label for="main_image">Main Image</label>
-                            <input type="file" id="main_image" class="form-control" required>
-                        </div>
-                        @if(isset($previousMainImage))
-                            <div class="mt-2">
-                                <label>Previously Uploaded Main Image:</label>
-                                <img src="{{ asset('storage/' . $previousMainImage) }}" alt="Main Image"
-                                    style="max-width: 150px; max-height: 200px;">
-                            </div>
-                        @endif
-
-                        <!-- Hidden input to store the base64 string of the main image -->
-                        <input type="hidden" name="main_image[0]" id="main_image_base64" required>
-
-                        <!-- Cropped Main Image Preview -->
-                        <div class="form-group mb-3" id="cropped-preview-container" style="display: none;">
-                            <label>Cropped Main Image Preview:</label>
-                            <img id="cropped-image-preview"
-                                style="max-width: 150px; max-height: 200px; display: block;">
-                        </div>
-
-                        <!-- Other Images Upload -->
-                        <div class="form-group mb-3">
-                            <label for="other_images">Other Images</label>
-                            <input type="file" id="other_images" class="form-control" name="other_images[]" multiple>
-                        </div>
-
-                        <!-- Other Images Preview -->
-                        <div class="form-group mb-3" id="other-images-preview-container" style="display: none;">
-                            <label>Selected Other Images Preview:</label>
-                            <div id="other-images-preview" style="display: flex; flex-wrap: wrap;"></div>
-                        </div>
+                   
+                    
+                       
+                       
 
                         <!-- Keywords -->
                         <div class="form-group mb-3">
