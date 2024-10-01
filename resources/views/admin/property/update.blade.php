@@ -32,7 +32,6 @@
                         </div>
                     @endif
 
-<<<<<<< HEAD
                     <!-- Property edit form -->
                     <form action="{{ route('admin.property.update', $property->id) }}" method="POST"
                         enctype="multipart/form-data" id="propertyForm">
@@ -40,29 +39,23 @@
                         @method('PUT')
                         <input type="hidden" name="cropData" id="cropData">
                         <input type="hidden" name="main_image_cropped" id="croppedImage">
-=======
                     <!-- Property update form -->
                     <form action="{{ route('property.update', $property->id) }}" method="POST" enctype="multipart/form-data"
                         id="propertyForm">
                         @csrf
                         @method('PUT')
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
 
                         <!-- Title -->
                         <div class="form-group mb-3">
                             <label for="title">Title</label>
-<<<<<<< HEAD
                             <input type="text" name="title" id="title" class="form-control"
                                 value="{{ old('title', $property->title) }}" required>
-=======
                             <input type="text" name="title" id="title" class="form-control" value="{{ old('title', $property->title) }}" required>
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                         </div>
 
                         <!-- Description -->
                         <div class="form-group mb-3">
                             <label for="description">Description</label>
-<<<<<<< HEAD
                             <textarea name="description" id="description" class="form-control" rows="5"
                                 required>{{ old('description', $property->description) }}</textarea>
                         </div>
@@ -92,7 +85,6 @@
                                 @endforeach
                             </select>
                         </div>
-=======
                             <textarea name="description" id="description" class="form-control" rows="5" required>{{ old('description', $property->description) }}</textarea>
                         </div>
 
@@ -120,45 +112,64 @@
                         </select>
                     </div>
 
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
 
                         <!-- Street -->
                         <div class="form-group mb-3">
                             <label for="street">Street</label>
-<<<<<<< HEAD
                             <input type="text" name="street" id="street" class="form-control"
                                 value="{{ old('street', $property->street) }}" required>
-=======
                             <input type="text" name="street" id="street" class="form-control" value="{{ old('street', $property->street) }}" required>
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                         </div>
 
                         <!-- Suburb -->
                         <div class="form-group mb-3">
-                            <label for="suburb">Suburb</label>
-<<<<<<< HEAD
-                            <input type="text" name="suburb" id="suburb" class="form-control"
-                                value="{{ old('suburb', $property->suburb) }}" required>
-=======
-                            <input type="text" name="suburb" id="suburb" class="form-control" value="{{ old('suburb', $property->suburb) }}" required>
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
+                
+    <label for="suburb">Suburb</label>
+    <select name="suburb" id="suburb" class="form-control" required>
+        <option value="">Select Suburb</option>
+        <option value="Sydney" {{ old('suburb') == 'Sydney' ? 'selected' : '' }}>Sydney</option>
+        <option value="Parramatta" {{ old('suburb') == 'Parramatta' ? 'selected' : '' }}>Parramatta</option>
+        <option value="Penrith" {{ old('suburb') == 'Penrith' ? 'selected' : '' }}>Penrith</option>
+        <option value="Manly" {{ old('suburb') == 'Manly' ? 'selected' : '' }}>Manly</option>
+        <option value="Bondi" {{ old('suburb') == 'Bondi' ? 'selected' : '' }}>Bondi</option>
+        <option value="Coogee" {{ old('suburb') == 'Coogee' ? 'selected' : '' }}>Coogee</option>
+        <option value="Randwick" {{ old('suburb') == 'Randwick' ? 'selected' : '' }}>Randwick</option>
+        <option value="Maroubra" {{ old('suburb') == 'Maroubra' ? 'selected' : '' }}>Maroubra</option>
+        <option value="Blacktown" {{ old('suburb') == 'Blacktown' ? 'selected' : '' }}>Blacktown</option>
+        <option value="Liverpool" {{ old('suburb') == 'Liverpool' ? 'selected' : '' }}>Liverpool</option>
+        <option value="Fairfield" {{ old('suburb') == 'Fairfield' ? 'selected' : '' }}>Fairfield</option>
+        <option value="Dee Why" {{ old('suburb') == 'Dee Why' ? 'selected' : '' }}>Dee Why</option>
+        <option value="Narrabeen" {{ old('suburb') == 'Narrabeen' ? 'selected' : '' }}>Narrabeen</option>
+        <option value="Palm Beach" {{ old('suburb') == 'Palm Beach' ? 'selected' : '' }}>Palm Beach</option>
+        <option value="Newtown" {{ old('suburb') == 'Newtown' ? 'selected' : '' }}>Newtown</option>
+        <option value="Balmain" {{ old('suburb') == 'Balmain' ? 'selected' : '' }}>Balmain</option>
+        <option value="Glebe" {{ old('suburb') == 'Glebe' ? 'selected' : '' }}>Glebe</option>
+        <option value="Ashfield" {{ old('suburb') == 'Ashfield' ? 'selected' : '' }}>Ashfield</option>
+        <option value="Strathfield" {{ old('suburb') == 'Strathfield' ? 'selected' : '' }}>Strathfield</option>
+        <option value="North Sydney" {{ old('suburb') == 'North Sydney' ? 'selected' : '' }}>North Sydney</option>
+        <option value="Mosman" {{ old('suburb') == 'Mosman' ? 'selected' : '' }}>Mosman</option>
+        <option value="Chatswood" {{ old('suburb') == 'Chatswood' ? 'selected' : '' }}>Chatswood</option>
+        <option value="Hornsby" {{ old('suburb') == 'Hornsby' ? 'selected' : '' }}>Hornsby</option>
+        <option value="Turramurra" {{ old('suburb') == 'Turramurra' ? 'selected' : '' }}>Turramurra</option>
+        <option value="Hurstville" {{ old('suburb') == 'Hurstville' ? 'selected' : '' }}>Hurstville</option>
+        <option value="Kogarah" {{ old('suburb') == 'Kogarah' ? 'selected' : '' }}>Kogarah</option>
+        <option value="Rockdale" {{ old('suburb') == 'Rockdale' ? 'selected' : '' }}>Rockdale</option>
+    </select>
+</div>
                         </div>
 
                         <!-- State -->
                         <div class="form-group mb-3">
-                            <label for="state">State</label>
-<<<<<<< HEAD
-                            <input type="text" name="state" id="state" class="form-control"
-                                value="{{ old('state', $property->state) }}" required>
-=======
-                            <input type="text" name="state" id="state" class="form-control" value="{{ old('state', $property->state) }}" required>
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
-                        </div>
+    <label for="state">State</label>
+    <select name="state" id="state" class="form-control" required>
+        <option value="">Select State</option>
+        <option value="NSW" {{ old('state', $property->state) == 'NSW' ? 'selected' : '' }}>New South Wales (NSW)</option>
+        </select>
+        </div>
 
                         <!-- Post Code -->
                         <div class="form-group mb-3">
                             <label for="post_code">Post Code</label>
-<<<<<<< HEAD
                             <input type="number" name="post_code" id="post_code" min="0" minlength="4"
                                 class="form-control" value="{{ old('post_code', $property->post_code) }}" required>
                         </div>
@@ -168,65 +179,50 @@
                             <label for="country">Country</label>
                             <input type="text" name="country" id="country" class="form-control"
                                 value="{{ old('country', $property->country) }}">
-=======
                             <input type="text" name="post_code" id="post_code" class="form-control" value="{{ old('post_code', $property->post_code) }}" required>
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                         </div>
 
                         <!-- Price -->
                         <div class="form-group mb-3">
                             <label for="price">Price</label>
-<<<<<<< HEAD
                             <input type="number" name="price" id="price" class="form-control" min="0"
                                 value="{{ old('price', $property->price) }}" required>
-=======
                             <input type="number" name="price" id="price" class="form-control" value="{{ old('price', $property->price) }}" required>
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                         </div>
 
                         <!-- Price Type -->
                         <div class="form-group mb-3">
                             <label for="price_type">Price Type</label>
-<<<<<<< HEAD
                             <select name="price_type" id="price_type" class="form-control" required>
                                 <option value="fixed" {{ old('price_type', $property->price_type) == 'fixed' ? 'selected' : '' }}>Fixed</option>
                                 <option value="negotiable" {{ old('price_type', $property->price_type) == 'negotiable' ? 'selected' : '' }}>Negotiable</option>
                                 <option value="on_request" {{ old('price_type', $property->price_type) == 'on_request' ? 'selected' : '' }}>On Request</option>
-=======
                             <select class="form-control" id="price_type" name="price_type" required>
                                 <option value="fixed" {{ $property->price_type == 'fixed' ? 'selected' : '' }}>Fixed</option>
                                 <option value="negotiable" {{ $property->price_type == 'negotiable' ? 'selected' : '' }}>Negotiable</option>
                                 <option value="on_request" {{ $property->price_type == 'on_request' ? 'selected' : '' }}>On Request</option>
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                             </select>
                         </div>
 
                         <!-- Bedrooms -->
                         <div class="form-group mb-3">
                             <label for="bedrooms">Bedrooms</label>
-<<<<<<< HEAD
                             <input type="number" name="bedrooms" id="bedrooms" class="form-control" min="0"
                                 value="{{ old('bedrooms', $property->bedrooms) }}" required>
-=======
                             <input type="number" name="bedrooms" id="bedrooms" class="form-control" value="{{ old('bedrooms', $property->bedrooms) }}" required>
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                         </div>
 
                         <!-- Bathrooms -->
                         <div class="form-group mb-3">
                             <label for="bathrooms">Bathrooms</label>
-<<<<<<< HEAD
                             <input type="number" name="bathrooms" id="bathrooms" class="form-control" min="0"
                                 value="{{ old('bathrooms', $property->bathrooms) }}" required>
-=======
                             <input type="number" name="bathrooms" id="bathrooms" class="form-control" value="{{ old('bathrooms', $property->bathrooms) }}" required>
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                         </div>
 
                         <!-- Area -->
                         <div class="form-group mb-3">
                             <label for="area">Area (sq ft)</label>
-<<<<<<< HEAD
                             <input type="number" name="area" id="area" class="form-control" min="0"
                                 value="{{ old('area', $property->area) }}" required>
                         </div>
@@ -244,16 +240,13 @@
                                     class="form-check-input" {{ old('status', $property->status) == '0' ? 'checked' : '' }} required>
                                 <label for="status_inactive" class="form-check-label">Inactive</label>
                             </div>
-=======
                             <input type="number" name="area" id="area" class="form-control" value="{{ old('area', $property->area) }}" required>
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                         </div>
 
                         <!-- Availability Status -->
                         <div class="form-group mb-3">
                             <label for="availability_status">Availability Status</label>
                             <select name="availability_status" id="availability_status" class="form-control" required>
-<<<<<<< HEAD
                                 <option value="available" {{ old('availability_status', $property->availability_status) == 'available' ? 'selected' : '' }}>Available</option>
                                 <option value="sold" {{ old('availability_status', $property->availability_status) == 'sold' ? 'selected' : '' }}>Sold</option>
                                 <option value="rental" {{ old('availability_status', $property->availability_status) == 'rental' ? 'selected' : '' }}>Rental</option>
@@ -277,7 +270,6 @@
                             <label for="keywords">Keywords</label>
                             <input type="text" name="keywords" id="keywords" class="form-control"
                                 value="{{ old('keywords', $property->metadata->meta_keywords) }}">
-=======
                                 <option value="available" {{ $property->availability_status == 'available' ? 'selected' : '' }}>Available</option>
                                 <option value="sold" {{ $property->availability_status == 'sold' ? 'selected' : '' }}>Sold</option>
                                 <option value="rental" {{ $property->availability_status == 'rental' ? 'selected' : '' }}>Rental</option>
@@ -320,16 +312,12 @@
                                        {{ old('status', $property->status) == '0' ? 'checked' : '' }} required>
                                 <label for="status_inactive" class="form-check-label">Inactive</label>
                             </div>
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                         </div>
 
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Update Property</button>
-<<<<<<< HEAD
                             <a href="{{ route('admin.property.index') }}" class="btn btn-secondary">Cancel</a>
-=======
                             <a href="{{ route('property.index') }}" class="btn btn-secondary">Cancel</a>
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                         </div>
                     </form>
                 </div>
@@ -347,11 +335,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-<<<<<<< HEAD
                 <img id="image-preview" style="width: 100%; height: auto; display: none;">
-=======
                 <img id="image-preview" style="max-width: 100%; max-height: 150%; display: none;">
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -364,20 +349,14 @@
 <!-- Include Cropper.js -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
-<<<<<<< HEAD
-=======
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
 
 <script>
     let cropper;
     let currentFile;
 
-<<<<<<< HEAD
     // Main image input change event
-=======
     // Image file input change event
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
     document.getElementById('main_image').addEventListener('change', function (e) {
         const files = e.target.files;
         if (files && files.length > 0) {
@@ -403,11 +382,8 @@
 
     // Save cropped image data and update hidden input fields
     document.getElementById('saveCrop').addEventListener('click', function () {
-<<<<<<< HEAD
         if (!cropper) return;
 
-=======
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
         const cropData = cropper.getData();
         document.getElementById('cropData').value = JSON.stringify({
             width: Math.round(cropData.width),
@@ -416,7 +392,6 @@
             y: Math.round(cropData.y)
         });
 
-<<<<<<< HEAD
         cropper.getCroppedCanvas().toBlob((blob) => {
             const reader = new FileReader();
             reader.readAsDataURL(blob);
@@ -460,7 +435,6 @@
 
     // Show toast message after form submission
     document.addEventListener('DOMContentLoaded', function () {
-=======
         const base64Image = cropper.getCroppedCanvas().toDataURL('image/png');
         document.getElementById('croppedImage').value = base64Image; // Store the base64 string
 
@@ -523,14 +497,11 @@
         });
 
         // Show toast message after form submission
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
         if (document.querySelector('.toast')) {
             const toast = new bootstrap.Toast(document.querySelector('.toast'));
             toast.show();
         }
     });
-<<<<<<< HEAD
-=======
     //For dynamic loading subcategories
     
     document.getElementById('category_id').addEventListener('change', function () {
@@ -555,6 +526,5 @@
         }
     });
 </script>
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
 </script>
 @endsection

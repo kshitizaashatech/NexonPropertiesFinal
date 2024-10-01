@@ -18,7 +18,7 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\NoTransactionPurposeController;
 use App\Http\Controllers\OffenderController;
-
+use App\Http\Controllers\SearchPropertiesController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\TranPurposeController;
 use App\Http\Controllers\TranProofController;
@@ -34,7 +34,6 @@ use App\Http\Controllers\Admin\FaviconController;
 use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\Admin\SocialLinkController;
 use App\Http\Controllers\Admin\AboutUsController;
-<<<<<<< HEAD
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\Admin\AboutDescriptionController;
@@ -57,22 +56,15 @@ Route::get("/blog", function () {
 })->name("blog");
 
 
-=======
-use App\Http\Controllers\Admin\WhyusController;
-use App\Http\Controllers\Auth\VerificationController;
-use App\Http\Controllers\Admin\FAQController;
-use App\Http\Controllers\Admin\TeamController;
-use App\Http\Controllers\Admin\AboutDescriptionController;
-use App\Http\Controllers\SearchPropertiesController;
+
+
 
 
 Auth::routes();
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
 Route::get("/member", function () {
     return view("frontend.member");
 
 });
-<<<<<<< HEAD
 Route::get("/contact", function () {
     return view("frontend.contact");
 })->name("contact");
@@ -110,7 +102,6 @@ Route::get("service", function () {
     return view("frontend.include.project.blade.php");
 });
 
-=======
 Route::get("services", function () {
     return view('frontend.include.blog.php'); });
 Route::get("whyuss", function () {
@@ -125,7 +116,6 @@ Route::get("service", function () {
     return view("frontend.include.project.blade.php"); });
 
 
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
 
 Route::get('/hello', function () {
     return view('frontend.singleproperties');
@@ -136,7 +126,6 @@ Route::get('/', [FrontViewController::class, 'index'])->name('index');
 
 Auth::routes(['verify' => true]);
 
-<<<<<<< HEAD
 Route::get('/email/verify', function () {
     return view('auth.verify');
 })->middleware('auth')->name('verification.notice');
@@ -156,7 +145,6 @@ Route::post('/email/resend', [VerificationController::class, 'resend'])
 
 
 Route::prefix('/admin')->name('admin.')->middleware(['web', 'auth','ensure.email.is.verified'])->group(function () {
-=======
 Route::get('/email/verify', 'Auth\VerificationController@show')
     ->name('verification.notice');
 Route::post('/email/resend', 'Auth\VerificationController@resend')
@@ -168,7 +156,6 @@ Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'
 
 
     Route::prefix('/admin')->name('admin.')->middleware(['web', 'auth'])->group(function () {
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
 
     Route::get('/', [AdminController::class, 'index'])->name('index');
     Route::get('/dashboard', [AdminController::class, 'index'])->middleware('verified');
@@ -213,7 +200,6 @@ Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'
         Route::resource('faqs', FAQController::class);
         Route::resource('about_descriptions', AboutDescriptionController::class);
 
-<<<<<<< HEAD
     Route::put('property/{id}/update-images', [PropertyController::class, 'updateImages'])->name('property.updateImages');
 
 
@@ -258,7 +244,6 @@ Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'
 
 // Testimonial Routes 
 
-=======
 
         // Blog Routes
         Route::resource('blogs', BlogController::class);
@@ -280,14 +265,12 @@ Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'
    //MetaData Routes
    Route::resource('metadata', MetadataController::class);
    Route::put('/metadata/{id}', [MetadataController::class, 'update'])->name('metadata.update');
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
 
    //Service Routes
    Route::resource('services', ServiceController::class);
 
 
 
-<<<<<<< HEAD
 
 
 Route::get('/services', [SingleController::class, 'render_service'])->name('properties');
@@ -312,7 +295,6 @@ Route::get('/about', [SingleController::class, 'render_about'])->name('about');
 Route::get('/blog', [SingleController::class, 'render_blog'])->name('blog');
 Route::get('/singleblogpost/{id}', [SingleController::class, 'singlePost'])->name('singleblogpost');
 Route::view("/singleproperties", "frontend.singleproperties")->name('singleproperties');
-=======
    //AboutUs Route
    Route::resource('aboutus', AboutUsController::class);
 
@@ -338,7 +320,6 @@ Route::view("/singleproperties", "frontend.singleproperties")->name('singleprope
    Route::get('/properties', [SingleController::class, 'render_properties'])->name('properties');
    Route::get('/singleproperties/{id}', [SingleController::class, 'render_singleProperties'])->name('singleproperties');
    Route::get('/properties/search', [SearchPropertiesController::class, 'filterProperties'])->name('frontend.searching');
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
 
 
 Route::prefix('/profile')->name('profile.')->middleware(['web', 'auth'])->group(function () {
@@ -346,7 +327,6 @@ Route::prefix('/profile')->name('profile.')->middleware(['web', 'auth'])->group(
     Route::post('/update/info', [App\Http\Controllers\ProfilesController::class, 'updateInfo'])->name('update.info');
     Route::post('/update/password', [App\Http\Controllers\ProfilesController::class, 'updatePassword'])->name('update.password');
 });
-<<<<<<< HEAD
 Route::prefix('services')->name('services.')->group(function () {
     Route::get('/', [ServiceController::class, 'index'])->name('index');
     Route::get('create', [ServiceController::class, 'create'])->name('create');
@@ -360,7 +340,5 @@ Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestF
 Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
-=======
 
 
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e

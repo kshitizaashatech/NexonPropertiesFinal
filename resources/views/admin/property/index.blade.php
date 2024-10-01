@@ -7,7 +7,6 @@
             <div class="card">
                 <div class="card-header">
                     <h4>Properties List</h4>
-<<<<<<< HEAD
                     <a href="{{ route('admin.property.create') }}" class="btn btn-primary float-end">Add New
                         Property</a>
                 </div>
@@ -22,14 +21,12 @@
                                 <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
                                     aria-label="Close"></button>
                             </div>
-=======
                     <a href="{{ route('property.create') }}" class="btn btn-primary float-end">Add New Property</a>
                 </div>
                 <div class="card-body">
                     @if(session('success'))
                         <div class="alert alert-success">
                             {{ session('success') }}
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                         </div>
                     @endif
 
@@ -37,11 +34,8 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-<<<<<<< HEAD
                                     <th>S.N</th>
-=======
                                     <th>ID</th>
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                                     <th>Title</th>
                                     <th>Category</th>
                                     <th>Sub Category</th>
@@ -54,20 +48,14 @@
                             <tbody>
                                 @foreach($properties as $property)
                                     <tr>
-<<<<<<< HEAD
                                         <td>{{ $loop->iteration }}</td>
-=======
                                         <td>{{ $property->id }}</td>
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                                         <td>{{ $property->title }}</td>
                                         <td>{{ $property->category->title }}</td>
                                         <td>{{ $property->subCategory->title }}</td>
                                         <td>${{ number_format($property->price, 2) }}</td>
-<<<<<<< HEAD
                                         <td>{{ \Carbon\Carbon::parse($property->update_time)->format('Y M d') }}</td>
-=======
                                         <td>{{ \Carbon\Carbon::parse($property->update_time)->format('Y - F - d') }}</td>
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                                         <td>
                                             @if($property->status)
                                                 <span class="badge bg-success">Active</span>
@@ -76,22 +64,18 @@
                                             @endif
                                         </td>
                                         <td>
-<<<<<<< HEAD
                                             <a href="{{ route('admin.property.edit', $property->id) }}"
                                                 class="btn btn-warning btn-sm">Edit</a>
                                             <form action="{{ route('admin.property.destroy', $property->id) }}" method="POST"
                                                 class="d-inline"
                                                 onsubmit="return confirm('Are you sure you want to delete this property?');">
-=======
                                             <a href="{{ route('property.edit', $property->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                             <form action="{{ route('property.destroy', $property->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this property?');">
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                                             </form>
 
-<<<<<<< HEAD
                                             <!-- Button to trigger Image Modal -->
                                             <a href="javascript:void(0)" class="btn btn-outline-secondary btn-sm"
                                                 data-bs-toggle="modal" data-bs-target="#imageModal{{ $property->id }}">
@@ -219,7 +203,6 @@
                                         </div>
                                     </div>
                                     <!-- End of Modal -->
-=======
                                             <!-- Button to trigger Metadata Modal -->
                                             @if($property->metadata)
                                                 <button type="button" class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#metadataModal{{ $property->id }}">
@@ -271,18 +254,14 @@
                                             @endif
                                         </td>
                                     </tr>
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                                 @endforeach
                             </tbody>
                         </table>
                     @else
                         <div class="alert alert-info">
-<<<<<<< HEAD
                             No properties available. <a href="{{ route('admin.property.create') }}">Create a new
                                 property</a>.
-=======
                             No properties available. <a href="{{ route('property.create') }}">Create a new property</a>.
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                         </div>
                     @endif
                 </div>
@@ -290,7 +269,6 @@
         </div>
     </div>
 </div>
-<<<<<<< HEAD
 
 <!-- Include Cropper.js -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet">
@@ -371,6 +349,4 @@
 
 
 </script>
-=======
->>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
 @endsection
