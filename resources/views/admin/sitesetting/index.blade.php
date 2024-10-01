@@ -74,14 +74,20 @@
                                                                 <h5 class="modal-title" id="metadataModalLabel{{ $setting->id }}">Edit Metadata Details</h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
+
+                                                            
                                                             <div class="modal-body">
+<<<<<<< HEAD
                                                                 <form action="{{ route('admin.metadata.update', $setting->metadata->id) }}" method="POST">
+=======
+                                                                <form action="{{ route('sitesettings.update', $setting->metadata->id) }}" method="POST">
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                                                                     @csrf
                                                                     @method('PUT')
 
                                                                     <div class="form-group mb-3">
                                                                         <label for="meta_title">Meta Title</label>
-                                                                        <input type="text" name="meta_title" id="meta_title" class="form-control" value="{{ old('meta_title', $setting->metadata->meta_title) }}" required>
+                                                                        <input type="text" name="meta_title" id="meta_title" class="form-control" value="{{ old('meta_title', $setting->metadata->meta_title) }}" >
                                                                     </div>
 
                                                                     <div class="form-group mb-3">
@@ -91,7 +97,12 @@
 
                                                                     <div class="form-group mb-3">
                                                                         <label for="meta_keywords">Meta Keywords</label>
-                                                                        <textarea name="meta_keywords" id="meta_keywords" class="form-control" rows="3" required>{{ old('meta_keywords', $setting->metadata->meta_keywords) }}</textarea>
+                                                                        @php
+                                                                            // Decode JSON and prepare keywords for display
+                                                                            $metaKeywords = json_decode($setting->metadata->meta_keywords, true);
+                                                                            $metaKeywords = is_array($metaKeywords) ? implode("\n", $metaKeywords) : $setting->metadata->meta_keywords;
+                                                                        @endphp
+                                                                        <textarea name="meta_keywords" id="meta_keywords" class="form-control" rows="3" required>{{ old('meta_keywords', $metaKeywords) }}</textarea>
                                                                     </div>
 
                                                                     <div class="form-group mb-3">
@@ -100,6 +111,7 @@
                                                                     </div>
 
                                                                     <div class="form-group">
+                                                            
                                                                         <button type="submit" class="btn btn-primary">Save Changes</button>
                                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                                                                     </div>

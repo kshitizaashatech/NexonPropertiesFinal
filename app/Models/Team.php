@@ -15,4 +15,8 @@ class Team extends Model
     protected $casts = [
         'social_media_links' => 'array',
     ];
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e

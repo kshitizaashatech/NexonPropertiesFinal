@@ -32,8 +32,13 @@
                         </div>
                     @endif
 
+<<<<<<< HEAD
                     <!-- Property creation form -->
                     <form action="{{ route('admin.property.store') }}" method="POST" enctype="multipart/form-data" id="propertyForm">
+=======
+                     <!-- Property creation form -->
+                     <form action="{{ route('property.store') }}" method="POST" enctype="multipart/form-data" id="propertyForm">
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                         @csrf
                         <input type="hidden" name="cropData" id="cropData">
                         <input type="hidden" name="main_image_cropped" id="croppedImage">
@@ -68,11 +73,15 @@
                             <label for="sub_category_id">Sub Category</label>
                             <select name="sub_category_id" id="sub_category_id" class="form-control" required>
                                 <option value="">Choose Sub Category</option>
+<<<<<<< HEAD
                                 @foreach($subCategories as $subCategory)
                                     <option value="{{ $subCategory->id }}" {{ old('sub_category_id') == $subCategory->id ? 'selected' : '' }}>
                                         {{ $subCategory->title }}
                                     </option>
                                 @endforeach
+=======
+                                <!-- Options will be populated by JavaScript -->
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                             </select>
                         </div>
 
@@ -207,7 +216,11 @@
 
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Create Property</button>
+<<<<<<< HEAD
                             <a href="{{ route('admin.property.index') }}" class="btn btn-secondary">Cancel</a>
+=======
+                            <a href="{{ route('property.index') }}" class="btn btn-secondary">Cancel</a>
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                         </div>
                     </form>
                 </div>
@@ -328,5 +341,40 @@
             toast.show();
         }
     });
+<<<<<<< HEAD
+=======
+
+    //JavaScript for dynamic subcategory loading
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const subCategories = @json($subCategories); // Pass the subcategories as a JSON object
+        const categoryDropdown = document.getElementById('category_id');
+        const subCategoryDropdown = document.getElementById('sub_category_id');
+
+        function updateSubCategories(selectedCategoryId) {
+            subCategoryDropdown.innerHTML = '<option value="">Choose Sub Category</option>'; // Clear previous options
+
+            const filteredSubCategories = subCategories.filter(subCategory => subCategory.category_id == selectedCategoryId);
+
+            filteredSubCategories.forEach(subCategory => {
+                const option = document.createElement('option');
+                option.value = subCategory.id;
+                option.textContent = subCategory.title;
+                subCategoryDropdown.appendChild(option);
+            });
+        }
+
+        categoryDropdown.addEventListener('change', function() {
+            updateSubCategories(this.value);
+        });
+
+        // Initialize subcategories based on the selected category on page load
+        const initialCategoryId = categoryDropdown.value;
+        if (initialCategoryId) {
+            updateSubCategories(initialCategoryId);
+        }
+    });
+
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
 </script>
 @endsection

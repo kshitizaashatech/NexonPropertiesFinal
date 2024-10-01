@@ -40,7 +40,11 @@
                     @endif
 
                     <!-- Why Us creation form -->
+<<<<<<< HEAD
                     <form action="{{ route('admin.whyus.store') }}" method="POST" enctype="multipart/form-data" id="whyUsForm">
+=======
+                    <form action="{{ route('whyus.store') }}" method="POST" enctype="multipart/form-data" id="whyUsForm">
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                         @csrf
 
                         <div class="form-group mb-3">
@@ -91,7 +95,11 @@
 
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Create Why Us</button>
+<<<<<<< HEAD
                             <a href="{{ route('admin.whyus.index') }}" class="btn btn-secondary">Cancel</a>
+=======
+                            <a href="{{ route('whyus.index') }}" class="btn btn-secondary">Cancel</a>
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                         </div>
                     </form>
                 </div>

@@ -3,7 +3,11 @@
 @section('content')
 <div class="container mt-5">
     <h1>Edit SubCategory</h1>
+<<<<<<< HEAD
     <form action="{{ route('admin.subcategories.update', $subCategory->id) }}" method="POST">
+=======
+    <form action="{{ route('subcategories.update', $subCategory->id) }}" method="POST">
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
         @csrf
         @method('PUT')
 
@@ -31,7 +35,11 @@
 
         {{-- Submit and Cancel Buttons --}}
         <button type="submit" class="btn btn-primary">Update SubCategory</button>
+<<<<<<< HEAD
         <a href="{{ route('admin.subcategories.index') }}" class="btn btn-secondary">Cancel</a>
+=======
+        <a href="{{ route('subcategories.index') }}" class="btn btn-secondary">Cancel</a>
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
     </form>
 </div>
 
@@ -49,4 +57,8 @@
         metaKeywords.value = title.split(' ').join(', '); // Simple keywords generation
     }
 </script>
+<<<<<<< HEAD
 @endsection
+=======
+@endsection
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e

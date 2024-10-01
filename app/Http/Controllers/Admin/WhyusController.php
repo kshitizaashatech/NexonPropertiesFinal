@@ -73,10 +73,18 @@ class WhyusController extends Controller
         // $slug = SlugService::createSlug(Metadata::class, 'slug', $request->title);
 
         // Create a new metadata entry
+<<<<<<< HEAD
         $metadata = Metadata::create([
             'meta_title' => $request->title,
             'meta_description' => $request->description,
             'meta_keywords' => $request->keywords,
+=======
+        $metaKeywordsArray = array_map('trim', explode(',', $request->keywords));
+        $metadata = Metadata::create([
+            'meta_title' => $request->title,
+            'meta_description' => $request->description,
+            'meta_keywords' => json_encode($metaKeywordsArray),
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
             'slug' => Str::slug($request->title)
         ]);
 
@@ -92,7 +100,11 @@ class WhyusController extends Controller
 
         session()->flash('success', 'WhyUs created successfully.');
 
+<<<<<<< HEAD
         return redirect()->route('admin.whyus.index');
+=======
+        return redirect()->route('whyus.index');
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
     }
 
     /**
@@ -165,10 +177,18 @@ class WhyusController extends Controller
         }
     
         // Update metadata record
+<<<<<<< HEAD
         $WhyUs->metadata()->updateOrCreate([], [
             'meta_title' => $request->title,
             'meta_description' => $request->description,
             'meta_keywords' => $request->keywords,
+=======
+        $metaKeywordsArray = array_map('trim', explode(',', $request->keywords));
+        $WhyUs->metadata()->updateOrCreate([], [
+            'meta_title' => $request->title,
+            'meta_description' => $request->description,
+            'meta_keywords' => json_encode($metaKeywordsArray),
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
             'slug' => Str::slug($request->title)
         ]);
     
@@ -205,7 +225,14 @@ class WhyusController extends Controller
 
     $WhyUs->delete();
 
+<<<<<<< HEAD
     return redirect()->route('admin.whyus.index')->with('success', 'WhyUs deleted successfully.');
 }
 
 }
+=======
+    return redirect()->route('whyus.index')->with('success', 'WhyUs deleted successfully.');
+}
+
+}
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e

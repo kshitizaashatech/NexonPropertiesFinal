@@ -38,10 +38,18 @@ class CategoryController extends Controller
         ]);
 
         // Create metadata dynamically based on category title
+<<<<<<< HEAD
         $metadata = Metadata::create([
             'meta_title' => $request->title,
             'meta_description' => "Description for " . $request->title,
             'meta_keywords' => $request->meta_keywords,
+=======
+        $metaKeywordsArray = array_map('trim', explode(',', $request->keywords));
+        $metadata = Metadata::create([
+            'meta_title' => $request->title,
+            'meta_description' => "Description for " . $request->title,
+            'meta_keywords' => json_encode($metaKeywordsArray),
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
             'slug' => Str::slug($request->title),
         ]);
 
@@ -51,7 +59,11 @@ class CategoryController extends Controller
             'metadata_id' => $metadata->id,
         ]);
 
+<<<<<<< HEAD
         return redirect()->route('admin.categories.index')->with('success', 'Category created successfully.');
+=======
+        return redirect()->route('categories.index')->with('success', 'Category created successfully.');
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
     }
 
     /**
@@ -86,10 +98,18 @@ class CategoryController extends Controller
         ]);
 
         // Update metadata with the updated title and other fields
+<<<<<<< HEAD
         $metadata->update([
             'meta_title' => $request->title,
             'meta_description' => "Description for " . $request->title,
             'meta_keywords' => $request->meta_keywords,
+=======
+        $metaKeywordsArray = array_map('trim', explode(',', $request->keywords));
+        $metadata->update([
+            'meta_title' => $request->title,
+            'meta_description' => "Description for " . $request->title,
+            'meta_keywords' =>json_encode($metaKeywordsArray),
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
             'slug' => Str::slug($request->title),
         ]);
 
@@ -98,7 +118,11 @@ class CategoryController extends Controller
             'title' => $request->title,
         ]);
 
+<<<<<<< HEAD
         return redirect()->route('admin.categories.index')->with('success', 'Category updated successfully.');
+=======
+        return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
     }
 
     /**
@@ -109,6 +133,10 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $category->delete();
 
+<<<<<<< HEAD
         return redirect()->route('admin.categories.index')->with('success', 'Category deleted successfully.');
+=======
+        return redirect()->route('categories.index')->with('success', 'Category deleted successfully.');
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
     }
 }

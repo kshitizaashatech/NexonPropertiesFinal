@@ -140,11 +140,23 @@
         </div>
       </li>
     </ul>
+<<<<<<< HEAD
     <script>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+=======
+</nav>
+<script>
+  <script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
 
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<<<<<<< HEAD
     </script>
 </nav>
+=======
+</script>
+</script>
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e

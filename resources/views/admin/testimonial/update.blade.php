@@ -63,11 +63,19 @@
                 </div>
             <!-- /.card-body -->
 
-            <div class="card-footer">
+            <div class="form-group">
                 <button type="submit" class="btn btn-primary">Update Testimonial</button>
+                <a href="{{ route('testimonials.index') }}" class="btn btn-secondary">Cancel</a>
             </div>
         </form>
     </div>
+<<<<<<< HEAD
+=======
+</div>
+
+
+
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
 
     <!-- Modal for Image Cropping -->
 <div class="modal fade" id="cropModal" tabindex="-1" aria-labelledby="cropModalLabel" aria-hidden="true">
@@ -152,4 +160,8 @@
     });
 </script>
 
+<<<<<<< HEAD
 @endsection
+=======
+@endsection
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e

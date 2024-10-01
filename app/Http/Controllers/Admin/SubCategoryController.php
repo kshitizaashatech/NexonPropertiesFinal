@@ -57,7 +57,11 @@ class SubCategoryController extends Controller
             'metadata_id' => $metadata->id,
         ]);
 
+<<<<<<< HEAD
         return redirect()->route('admin.subcategories.index')->with('success', 'SubCategory created successfully.');
+=======
+        return redirect()->route('subcategories.index')->with('success', 'SubCategory created successfully.');
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
     }
 
     /**

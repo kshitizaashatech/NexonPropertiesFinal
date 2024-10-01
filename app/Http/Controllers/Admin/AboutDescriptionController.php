@@ -55,4 +55,8 @@ class AboutDescriptionController extends Controller
 
         return redirect()->route('admin.about_descriptions.index')->with('success', 'Description deleted successfully.');
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e

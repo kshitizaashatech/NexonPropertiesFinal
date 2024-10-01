@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+<<<<<<< HEAD
+=======
+use App\Models\Category;
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
 
 class SearchPropertiesController extends Controller
 {
@@ -59,9 +63,21 @@ class SearchPropertiesController extends Controller
         // Fetch the filtered properties
         $properties = $query->get();
 
+<<<<<<< HEAD
         // Debug: Uncomment to check if the query is applying filters correctly
         //  dd($query->toSql(), $query->getBindings(), $properties);
 
         return view('frontend.search', compact('properties'));
     }
 }
+=======
+
+
+        $categories = Category::get()->all();
+        // Debug: Uncomment to check if the query is applying filters correctly
+        //  dd($query->toSql(), $query->getBindings(), $properties);
+
+        return view('frontend.searching', compact('properties', 'categories'));
+    }
+}
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e

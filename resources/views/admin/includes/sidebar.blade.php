@@ -53,6 +53,7 @@
                             <hr class="mb-0 navbar-vertical-divider">
                         </div>
                     </div>
+<<<<<<< HEAD
                 <li class="nav-item">
                     <a class="nav-link dropdown-indicator {{ Request::segment(2) == 'site-settings' ? '' : 'collapsed' }}"
                         href="#dashboard1" role="button" data-bs-toggle="collapse"
@@ -246,6 +247,209 @@
                                     <div class="d-flex align-items-center">
                                         <span class="nav-link-icon"><i class="fas fa-info-circle"></i></span>
                                         <span class="nav-link-text ps-1">Properties</span>
+=======
+                    <li class="nav-item">
+                        <a class="nav-link dropdown-indicator {{ Request::segment(2) == 'site-settings' ? '' : 'collapsed' }}"
+                            href="#dashboard1" role="button" data-bs-toggle="collapse"
+                            aria-expanded="{{ Request::segment(2) == 'site-settings' ? 'true' : 'false' }}"
+                            aria-controls="dashboard1">
+                            <div class="d-flex align-items-center">
+                                <span class="nav-link-icon"><i class="fas fa-users"></i></span>
+                                <span class="nav-link-text ps-1">Site Settings</span>
+                            </div>
+                        </a>
+                        <ul class="nav collapse {{ Request::segment(2) == 'site-settings' ? 'show' : '' }}" id="dashboard1">
+
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::segment(2) == 'site-settings' ? 'active' : '' }}"
+                                    href="{{ route('sitesettings.index') }}">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fa fa-angle-double-right"></i> Site Setting
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::segment(2) == 'favicons' ? 'active' : '' }}"
+                                    href="{{ route('favicons.index') }}">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fa fa-angle-double-right"></i> Favicon
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
+                                    </div>
+                                </a>
+                            </li>
+
+
+<<<<<<< HEAD
+
+
+                        </ul>
+                    </li>
+                </li>
+
+=======
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::segment(2) == 'social-links' ? 'active' : '' }}"
+                                    href="{{ route('social-links.index') }}">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fa fa-angle-double-right"></i> Social Links
+                                    </div>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                </li>
+
+                {{-- End of Site Settings --}}
+
+
+
+                {{-- Start of the Information --}}
+                <li class="nav-item">
+                    <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
+                        <div class="col-auto navbar-vertical-label">Informations</div>
+                        <div class="col ps-0">
+                            <hr class="mb-0 navbar-vertical-divider">
+                        </div>
+                    </div>
+                <li class="nav-item">
+                    <a class="nav-link dropdown-indicator {{ Request::segment(2) == 'information' ? '' : 'collapsed' }}"
+                        href="#dashboard2" role="button" data-bs-toggle="collapse"
+                        aria-expanded="{{ Request::segment(2) == 'information' ? 'true' : 'false' }}"
+                        aria-controls="dashboard2">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-icon"><i class="fas fa-users"></i></span>
+                            <span class="nav-link-text ps-1">Informations</span>
+                        </div>
+                    </a>
+                    <ul class="nav collapse" id="dashboard2">
+
+                        <li class="nav-item">
+                            <!-- Top-level link for AboutUs -->
+                            <a class="nav-link {{ Request::is('admin/aboutus*') ? 'active' : '' }}"
+                                href="{{ route('aboutus.index') }}">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-icon"><i class="fas fa-info-circle"></i></span>
+                                    <span class="nav-link-text ps-1">About Us</span>
+                                </div>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <!-- Top-level link for AboutUs -->
+                            <a class="nav-link {{ Request::is('admin/about_descriptions*') ? 'active' : '' }}"
+                                href="{{ route('admin.about_descriptions.index') }}">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-icon"><i class="fas fa-info-circle"></i></span>
+                                    <span class="nav-link-text ps-1">MVC</span>
+                                </div>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <!-- Top-level link for WhyUs -->
+                            <a class="nav-link {{ Request::is('admin/whyus*') ? 'active' : '' }}"
+                                href="{{ route('whyus.index') }}">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-icon"><i class="fas fa-info-circle"></i></span>
+                                    <span class="nav-link-text ps-1">Why Us</span>
+                                </div>
+                            </a>
+                        </li>
+
+
+
+                        <li class="nav-item">
+                            <!-- Top-level link for AboutUs -->
+                            <a class="nav-link {{ Request::is('admin/team*') ? 'active' : '' }}"
+                                href="{{ route('admin.team.index') }}">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-icon"><i class="fas fa-info-circle"></i></span>
+                                    <span class="nav-link-text ps-1">Team</span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <!-- Top-level link for Services -->
+                            <a class="nav-link {{ Request::is('admin/services*') ? 'active' : '' }}"
+                                href="{{ route('services.index') }}">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-icon"><i class="fas fa-concierge-bell"></i></span>
+                                    <span class="nav-link-text ps-1">Services</span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <!-- Top-level link for AboutUs -->
+                            <a class="nav-link {{ Request::is('admin/faqs*') ? 'active' : '' }}"
+                                href="{{ route('admin.faqs.index') }}">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-icon"><i class="fas fa-info-circle"></i></span>
+                                    <span class="nav-link-text ps-1">FAQS</span>
+                                </div>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </li>
+                </li>
+
+                {{-- For Properties Management --}}
+
+                <li class="nav-item">
+                    <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
+                        <div class="col-auto navbar-vertical-label">Property Management</div>
+                        <div class="col ps-0">
+                            <hr class="mb-0 navbar-vertical-divider">
+                        </div>
+                    </div>
+                    <li class="nav-item">
+                        <a class="nav-link dropdown-indicator {{ Request::segment(2) == 'information' ? '' : 'collapsed' }}"
+                            href="#dashboard3" role="button" data-bs-toggle="collapse"
+                            aria-expanded="{{ Request::segment(2) == 'information' ? 'true' : 'false' }}"
+                            aria-controls="dashboard3">
+                            <div class="d-flex align-items-center">
+                                <span class="nav-link-icon"><i class="fas fa-users"></i></span>
+                                <span class="nav-link-text ps-1">Properties</span>
+                            </div>
+                        </a>
+                        <ul class="nav collapse" id="dashboard3">
+
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::is('admin/categories*') ? 'active' : '' }}"
+                                    href="{{ route('categories.index') }}">
+                                    <div class="d-flex align-items-center">
+                                        <span class="nav-link-icon"><i class="fas fa-users"></i></span>
+                                        <span class="nav-link-text ps-1">Category</span>
+                                    </div>
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::is('admin/subcategories*') ? 'active' : '' }}"
+                                    href="{{ route('subcategories.index') }}">
+                                    <div class="d-flex align-items-center">
+                                        <span class="nav-link-icon"><i class="fas fa-users"></i></span>
+                                        <span class="nav-link-text ps-1">Subcategories</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <!-- Top-level link for AboutUs -->
+                                <a class="nav-link {{ Request::is('admin/property*') ? 'active' : '' }}"
+                                    href="{{ route('property.index') }}">
+                                    <div class="d-flex align-items-center">
+                                        <span class="nav-link-icon"><i class="fas fa-info-circle"></i></span>
+                                        <span class="nav-link-text ps-1">Properties</span>
                                     </div>
                                 </a>
                             </li>
@@ -257,6 +461,7 @@
                     </li>
                 </li>
 
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
 
 
                 {{-- For the Users Management --}}
@@ -295,7 +500,11 @@
                             <li class="nav-item">
                                 <!-- Top-level link for Testimonials -->
                                 <a class="nav-link {{ Request::is('admin/testimonials*') ? 'active' : '' }}"
+<<<<<<< HEAD
                                     href="{{ route('admin.testimonials.index') }}">
+=======
+                                    href="{{ route('testimonials.index') }}">
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                                     <div class="d-flex align-items-center">
                                         <span class="nav-link-icon"><i class="fas fa-users"></i></span>
                                         <span class="nav-link-text ps-1">Testimonials</span>

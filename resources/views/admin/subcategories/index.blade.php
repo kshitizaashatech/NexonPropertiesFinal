@@ -7,7 +7,11 @@
             <div class="card">
                 <div class="card-header">
                     <h4>SubCategories List</h4>
+<<<<<<< HEAD
                     <a href="{{ route('admin.subcategories.create') }}" class="btn btn-primary float-end">Add New SubCategory</a>
+=======
+                    <a href="{{ route('subcategories.create') }}" class="btn btn-primary float-end">Add New SubCategory</a>
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                 </div>
                 <div class="card-body">
                     @if(session('success'))
@@ -35,8 +39,13 @@
                                         <td>{{ $subCategory->category->title }}</td>
                                         <td>{{ $subCategory->metadata ? $subCategory->metadata->meta_title : 'No Metadata' }}</td>
                                         <td>
+<<<<<<< HEAD
                                             <a href="{{ route('admin.subcategories.edit', $subCategory->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                             <form action="{{ route('admin.subcategories.destroy', $subCategory->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this subcategory?');">
+=======
+                                            <a href="{{ route('subcategories.edit', $subCategory->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                            <form action="{{ route('subcategories.destroy', $subCategory->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this subcategory?');">
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm">Delete</button>
@@ -57,7 +66,11 @@
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
+<<<<<<< HEAD
                                                                 <form action="{{ route('admin.metadata.update', $subCategory->metadata->id) }}" method="POST">
+=======
+                                                                <form action="{{ route('metadata.update', $subCategory->metadata->id) }}" method="POST">
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                                                                     @csrf
                                                                     @method('PUT')
 
@@ -98,7 +111,11 @@
                         </table>
                     @else
                         <div class="alert alert-info">
+<<<<<<< HEAD
                             No subcategories available. <a href="{{ route('admin.subcategories.create') }}">Create a new subcategory</a>.
+=======
+                            No subcategories available. <a href="{{ route('subcategories.create') }}">Create a new subcategory</a>.
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                         </div>
                     @endif
                 </div>
@@ -106,4 +123,8 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 @endsection
+=======
+@endsection
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e

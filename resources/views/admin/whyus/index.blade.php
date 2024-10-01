@@ -7,7 +7,11 @@
             <div class="card">
                 <div class="card-header">
                     <h4>WhyUs List</h4>
+<<<<<<< HEAD
                     <a href="{{ route('admin.whyus.create') }}" class="btn btn-primary float-end">Add Why Us</a>
+=======
+                    <a href="{{ route('whyus.create') }}" class="btn btn-primary float-end">Add Why Us</a>
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                 </div>
                 <div class="card-body">
                     <!-- Display success message -->
@@ -41,10 +45,17 @@
                                             @endif
                                         </td>
                                         <td>
+<<<<<<< HEAD
                                             <a href="{{ route('admin.whyus.edit', $why->id) }}" class="btn btn-outline-primary btn-sm">
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                             <form action="{{ route('admin.whyus.destroy', $why->id) }}" method="POST" style="display:inline;">
+=======
+                                            <a href="{{ route('whyus.edit', $why->id) }}" class="btn btn-outline-primary btn-sm">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <form action="{{ route('whyus.destroy', $why->id) }}" method="POST" style="display:inline;">
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Are you sure you want to delete this?')">
@@ -68,7 +79,11 @@
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
+<<<<<<< HEAD
                                                                 <form action="{{ route('admin.metadata.update', $why->metadata->id) }}" method="POST">
+=======
+                                                                <form action="{{ route('metadata.update', $why->metadata->id) }}" method="POST">
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                                                                     @csrf
                                                                     @method('PUT')
 
@@ -84,7 +99,16 @@
 
                                                                     <div class="form-group mb-3">
                                                                         <label for="meta_keywords">Meta Keywords</label>
+<<<<<<< HEAD
                                                                         <textarea name="meta_keywords" id="meta_keywords" class="form-control" rows="3" required>{{ old('meta_keywords', $why->metadata->meta_keywords) }}</textarea>
+=======
+                                                                        @php
+                                                                            // Decode JSON and prepare keywords for display
+                                                                            $metaKeywords = json_decode($why->metadata->meta_keywords, true);
+                                                                            $metaKeywords = is_array($metaKeywords) ? implode("\n", $metaKeywords) : $why->metadata->meta_keywords;
+                                                                        @endphp
+                                                                        <textarea name="meta_keywords" id="meta_keywords" class="form-control" rows="3" required>{{ old('meta_keywords', $metaKeywords) }}</textarea>
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                                                                     </div>
 
                                                                     <div class="form-group mb-3">
@@ -115,4 +139,8 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 @endsection
+=======
+@endsection
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e

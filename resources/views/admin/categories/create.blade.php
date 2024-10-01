@@ -19,7 +19,11 @@
                         </div>
                     @endif
 
+<<<<<<< HEAD
                     <form action="{{ route('admin.categories.store') }}" method="POST">
+=======
+                    <form action="{{ route('categories.store') }}" method="POST">
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                         @csrf
 
                         {{-- Title Input --}}
@@ -37,7 +41,11 @@
                         {{-- Submit and Cancel Buttons --}}
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Create Category</button>
+<<<<<<< HEAD
                             <a href="{{ route('admin.categories.index') }}" class="btn btn-secondary">Cancel</a>
+=======
+                            <a href="{{ route('categories.index') }}" class="btn btn-secondary">Cancel</a>
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                         </div>
                     </form>
                 </div>
@@ -45,4 +53,8 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 @endsection
+=======
+@endsection
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e

@@ -24,22 +24,35 @@
               <div class="btn-buttonyellow btn-buttonyellowsmall">Buy</div>
               <div class="btn-buttongreen mx-2">Rent</div>
               </div> -->
+<<<<<<< HEAD
                 <form action="{{ route('frontend.search') }}" method="GET">
+=======
+                <form action="{{ route('frontend.searching') }}" method="GET">
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                   <div
                   class="formsection flex-column justify-content-center align-items-center py-md-3 py-2 gap-2 col-md-10 px-4 mx-md-4">
                   <div class="d-flex flex-wrap gap-md-3 showform">
 
+<<<<<<< HEAD
                     <!-- Listing Type - Categories -->
                     <div class="d-flex flex-column col-md-3">
                     <label class="sm-text1 des-text">Listing type</label>
                     <select class="input bannerinput" name="list_type" id="category_id">
                       <option value="">Select Category</option>
                       @foreach($categories as $category)
+=======
+
+                    <select type="text" class="input bannerinput" name="region" placeholder="Regions"
+                    value="{{ request('region') }}">
+                    <option value="" disabled selected>Select Category</option>
+                    @foreach($categories as $category)
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
               <option value="{{ $category->id }}" {{ request('list_type') == $category->id ? 'selected' : '' }}>
               {{ $category->title }}
               </option>
             @endforeach
                     </select>
+<<<<<<< HEAD
                     </div>
 
                     <!-- Properties Type - Subcategories -->
@@ -48,10 +61,20 @@
                     <select class="input bannerinput" name="property_type" id="subcategory_id">
                       <option value="">Select Sub-Category</option>
                       @foreach($subcategories as $subcategory)
+=======
+
+
+                    
+                    <select type="text" class="input bannerinput" name="region" placeholder="Regions"
+                    value="{{ request('region') }}">
+                    <option value="" disabled selected>Select subCategory</option>
+                    @foreach($subcategories as $subcategory)
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
               <option value="{{ $subcategory->id }}" data-category-id="{{ $subcategory->category_id }}"
               {{ request('property_type') == $subcategory->id ? 'selected' : '' }}>
               {{ $subcategory->title }}
               </option>
+<<<<<<< HEAD
             @endforeach
                     </select>
                     </div>
@@ -61,6 +84,14 @@
                     <label class="sm-text1 des-text">States</label>
                     <select class="input bannerinput" name="state">
                       <option value="">Select State</option>
+=======
+            @endforeach</option>
+                    </select>
+                    <select type="text" class="input bannerinput" name="region" placeholder="Regions"
+                    value="{{ request('region') }}">
+                    <option value="1">States</option>
+                    
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                       @foreach($properties as $property)
               @if(!empty($property->state))
           <option value="{{ $property->state }}" {{ request('state') == $property->state ? 'selected' : '' }}>
@@ -69,7 +100,12 @@
         @endif
             @endforeach
                     </select>
+<<<<<<< HEAD
                     </div>
+=======
+
+
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
 
                     <!-- Regions Placeholder -->
                     <select type="text" class="input bannerinput" name="region" placeholder="Regions"
@@ -81,12 +117,17 @@
 
                     <input type="text" class="input bannerinput" name="location" placeholder="Keyword"
                     value="{{ request('location') }}">
+<<<<<<< HEAD
                     <span class="sm-text advance rounded onclick" onclick="funOpenadvance()">Advance</span>
+=======
+                    <span class="sm-text mt-2 greenhighlight advance" onclick="funOpenadvance()">Advanced ::</span>
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                     <button type="submit" class="btn-buttongreen">Search</button>
                   </div>
                   </div>
                 </form>
 
+<<<<<<< HEAD
                 <script>
                   document.addEventListener('DOMContentLoaded', function () {
                   const categorySelect = document.getElementById('category_id');
@@ -112,6 +153,9 @@
                   categorySelect.addEventListener('change', filterSubcategories);
                   });
                 </script>
+=======
+             
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                 </div>
               </div>
               </div>
@@ -135,9 +179,15 @@
         $mainImage = !empty($mainImages) ? asset('' . $mainImages[0]) : asset('images/default-placeholder.png');
          @endphp
               <img src="{{ $mainImage }}" alt="Property Image" class="property-image  property-imageheightbanner">
+<<<<<<< HEAD
               <div class="property-details">
               <div class="md-text1">
                 {{ strlen($property->title) > 32 ? substr($property->title, 0, 32) . "..." : $property->title}}
+=======
+              <div class="property-details property-detailsbanner px-1">
+              <div class="md-text1">
+                {{ strlen($property->title) >28 ? substr($property->title, 0, 28) . "..." : $property->title}}
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
               </div>
               <div class="sm-text highlight text-center p-0 m-0">eedddde</div>
               <div class="d-flex justify-content-between gap-3 p-0 mx-4">
@@ -175,6 +225,7 @@
   </a>
 </section>
 
+<<<<<<< HEAD
 <style>
   .amenities {
     background-color: blanchedalmond;
@@ -190,6 +241,11 @@
 
 <section class="container rounded  amenities ">
   <div class="row   gap-1 p-3" id="advanceitems">
+=======
+
+<section class="container rounded  amenities ">
+  <div class="row  p-3" id="advanceitems">
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
     <div class="d-flex col-md-2 pt-3">
       <input type="checkbox" name="Aircondition" id="">
       <span class="nameofthing">Air Conditioning</span>
@@ -285,14 +341,22 @@
 
 
 
+<<<<<<< HEAD
 
+=======
+{{--
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
 
 <section class="container-fluid py-4 propertiesfinder propertiesfinderhome">
   <div class="container">
     <h1 class="lg-text1 text-center searchhide" onclick="funsearchingon()">
       <i class="fa-brands fa-searchengin customicons"></i> Find your properties
     </h1>
+<<<<<<< HEAD
     <form action="{{ route('frontend.search') }}" method="GET">
+=======
+    <form action="{{ route('frontend.searching') }}" method="GET">
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
       <div class="justify-content-center align-items-center gap-1 flex-wrap hiddenform hiddenformhome" id="hiddenform">
         <div class="d-flex flex-column col-md-3">
           <label class="sm-text1 des-text">Listing type</label>
@@ -322,6 +386,10 @@
     </form>
   </div>
 </section>
+<<<<<<< HEAD
+=======
+--}}
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
 
 
 <script>
@@ -383,5 +451,37 @@
     // Start the process
     showInitialItems();
   });
+<<<<<<< HEAD
 
 </script>
+=======
+
+</script>
+
+
+<script>
+                  document.addEventListener('DOMContentLoaded', function () {
+                  const categorySelect = document.getElementById('category_id');
+                  const subCategorySelect = document.getElementById('subcategory_id');
+
+                  function filterSubcategories() {
+                    const selectedCategoryId = categorySelect.value;
+                    const subCategories = subCategorySelect.querySelectorAll('option');
+
+                    subCategories.forEach(option => {
+                    if (!option.value) return; // Skip the "Select Sub-Category" option
+                    option.style.display = option.dataset.categoryId === selectedCategoryId || selectedCategoryId === '' ? 'block' : 'none';
+                    });
+
+                    // Reset subcategory selection when category changes
+                    subCategorySelect.value = '';
+                  }
+
+                  // Initial filter when the page loads
+                  filterSubcategories();
+
+                  // Update subcategories when the category is changed
+                  categorySelect.addEventListener('change', filterSubcategories);
+                  });
+                </script>
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e

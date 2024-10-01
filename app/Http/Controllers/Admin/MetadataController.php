@@ -27,32 +27,63 @@ class MetadataController extends Controller
             'meta_keywords' => 'required|string',
             'slug' => 'required|string|max:255|unique:metadata',
         ]);
-
-        Metadata::create($request->all());
-
+    
+        // Split meta_keywords by commas, trim spaces, and convert to JSON array
+        $metaKeywordsArray = array_map('trim', explode(',', $request->meta_keywords));
+        $requestData = $request->all();
+        $requestData['meta_keywords'] = json_encode($metaKeywordsArray);
+    
+        Metadata::create($requestData);
+    
         return redirect()->route('metadata.index')->with('success', 'Metadata created successfully.');
     }
-
+    
     public function edit(Metadata $metadata)
     {
+        // Decode JSON array and convert to a comma-separated string for display
+        $keywords = json_decode($metadata->meta_keywords, true);
+        if (!is_array($keywords)) {
+            $keywords = [];
+        }
+        $metadata->meta_keywords = implode(',', $keywords);
+
         return view('admin.metadata.update', compact('metadata'));
     }
 
     public function update(Request $request, $id)
-{
-    $metadata = Metadata::findOrFail($id);
+    {
+        $metadata = Metadata::findOrFail($id);
 
+<<<<<<< HEAD
     $request->validate([
         'meta_title' => 'required|string|max:60',
         'meta_description' => 'required|string|max:160',
         'meta_keywords' => 'required|string',
         'slug' => 'required|string|max:140|unique:metadata,slug,' . $metadata->id, 
     ]);
+=======
+        $request->validate([
+            'meta_title' => 'required|string|max:60',
+            'meta_description' => 'required|string|max:160',
+            'meta_keywords' => 'nullable|string',
+            'slug' => 'required|string|max:140|unique:metadata,slug,' . $metadata->id,
+        ]);
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
 
-    $metadata->update($request->all());
+        // Split meta_keywords by commas, trim spaces, and convert to JSON array
+        $metaKeywordsArray = array_map('trim', explode(',', $request->meta_keywords));
+        $requestData = $request->all();
+        $requestData['meta_keywords'] = json_encode($metaKeywordsArray);
 
+<<<<<<< HEAD
     return redirect()->route('admin.metadata.index')->with('success', 'Metadata updated successfully!');
 }
+=======
+        $metadata->update($requestData);
+
+        return redirect()->route('metadata.index')->with('success', 'Metadata updated successfully!');
+    }
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
 
     public function destroy(Metadata $metadata)
     {

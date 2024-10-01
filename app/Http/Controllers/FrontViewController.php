@@ -42,6 +42,12 @@ class FrontViewController extends Controller
     }
 
     // Example of a single post method that is currently commented out
+        $categories = Category::all(); 
+        $properties = $searchController->filterProperties($request);
+        return view('frontend.searching', compact('properties','categories'));
+    
+
+
     // public function singlePost($slug)
     // {
     //     $blogs = Blog::where('slug', $slug)->firstOrFail();

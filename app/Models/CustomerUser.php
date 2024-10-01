@@ -19,4 +19,8 @@ class CustomerUser extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e

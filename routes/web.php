@@ -34,6 +34,7 @@ use App\Http\Controllers\Admin\FaviconController;
 use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\Admin\SocialLinkController;
 use App\Http\Controllers\Admin\AboutUsController;
+<<<<<<< HEAD
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\Admin\AboutDescriptionController;
@@ -56,10 +57,22 @@ Route::get("/blog", function () {
 })->name("blog");
 
 
+=======
+use App\Http\Controllers\Admin\WhyusController;
+use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\Admin\FAQController;
+use App\Http\Controllers\Admin\TeamController;
+use App\Http\Controllers\Admin\AboutDescriptionController;
+use App\Http\Controllers\SearchPropertiesController;
+
+
+Auth::routes();
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
 Route::get("/member", function () {
     return view("frontend.member");
 
 });
+<<<<<<< HEAD
 Route::get("/contact", function () {
     return view("frontend.contact");
 })->name("contact");
@@ -97,15 +110,33 @@ Route::get("service", function () {
     return view("frontend.include.project.blade.php");
 });
 
+=======
+Route::get("services", function () {
+    return view('frontend.include.blog.php'); });
+Route::get("whyuss", function () {
+    return view("frontend.include.advantage.php"); });
+Route::get("aboutuss", function () {
+    return view("frontend.include.about.blade.php"); });
+Route::get("services", function () {
+    return view("frontend.include.indexbanner.php"); });
+Route::get("testimonials", function () {
+    return view("frontend.testimonial.blade.php"); });
+Route::get("service", function () {
+    return view("frontend.include.project.blade.php"); });
+
+
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
 
 Route::get('/hello', function () {
     return view('frontend.singleproperties');
 })->name('hello');
 Route::get('/', [FrontViewController::class, 'index'])->name('index');
-
+// Route::get('/properties/{categoryId?}', [FrontViewController::class, 'properties'])->name('properties');
+// Route::get('/properties/search', [FrontViewController::class, 'search'])->name('frontend.search');
 
 Auth::routes(['verify' => true]);
 
+<<<<<<< HEAD
 Route::get('/email/verify', function () {
     return view('auth.verify');
 })->middleware('auth')->name('verification.notice');
@@ -125,10 +156,21 @@ Route::post('/email/resend', [VerificationController::class, 'resend'])
 
 
 Route::prefix('/admin')->name('admin.')->middleware(['web', 'auth','ensure.email.is.verified'])->group(function () {
+=======
+Route::get('/email/verify', 'Auth\VerificationController@show')
+    ->name('verification.notice');
+Route::post('/email/resend', 'Auth\VerificationController@resend')
+    ->name('verification.resend');
+
+Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])
+    ->middleware(['auth', 'signed'])
+    ->name('verification.verify');
+
+
+    Route::prefix('/admin')->name('admin.')->middleware(['web', 'auth'])->group(function () {
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
 
     Route::get('/', [AdminController::class, 'index'])->name('index');
-    Route::resource('services', ServiceController::class);
-    Route::resource('favicon', FaviconController::class);
     Route::get('/dashboard', [AdminController::class, 'index'])->middleware('verified');
     Route::put('/services/update', [ServiceController::class, 'update'])->name('services.update');
     Route::resource('favicons', FaviconController::class);
@@ -167,7 +209,11 @@ Route::prefix('/admin')->name('admin.')->middleware(['web', 'auth','ensure.email
 
 
     });
+        Route::resource('team', TeamController::class);
+        Route::resource('faqs', FAQController::class);
+        Route::resource('about_descriptions', AboutDescriptionController::class);
 
+<<<<<<< HEAD
     Route::put('property/{id}/update-images', [PropertyController::class, 'updateImages'])->name('property.updateImages');
 
 
@@ -212,12 +258,36 @@ Route::prefix('/admin')->name('admin.')->middleware(['web', 'auth','ensure.email
 
 // Testimonial Routes 
 
+=======
 
-//    Route::resource('services', ServiceController::class);
+        // Blog Routes
+        Route::resource('blogs', BlogController::class);
+        Route::post('/upload-image', [BlogController::class, 'uploadImage'])->name('uploadImage');
+});
+
+
+   //Property, Category, Subcategories Routes
+
+   Route::resource('admin/property', PropertyController::class);
+   Route::resource('admin/categories', CategoryController::class);
+   Route::resource('admin/subcategories', SubCategoryController::class);
+   Route::get('/subcategories/{categoryId}', [PropertyController::class, 'getSubcategories'])->name('subcategories');
+
+
+   //Testimonial Routes 
+   Route::resource('admin/testimonials', TestimonialController::class);
+
+   //MetaData Routes
+   Route::resource('metadata', MetadataController::class);
+   Route::put('/metadata/{id}', [MetadataController::class, 'update'])->name('metadata.update');
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
+
+   //Service Routes
+   Route::resource('services', ServiceController::class);
 
 
 
-
+<<<<<<< HEAD
 
 
 Route::get('/services', [SingleController::class, 'render_service'])->name('properties');
@@ -242,6 +312,33 @@ Route::get('/about', [SingleController::class, 'render_about'])->name('about');
 Route::get('/blog', [SingleController::class, 'render_blog'])->name('blog');
 Route::get('/singleblogpost/{id}', [SingleController::class, 'singlePost'])->name('singleblogpost');
 Route::view("/singleproperties", "frontend.singleproperties")->name('singleproperties');
+=======
+   //AboutUs Route
+   Route::resource('aboutus', AboutUsController::class);
+
+   //WhyUs Route
+   Route::resource('whyus', WhyusController::class);
+
+   //Property Route
+   Route::resource('property', PropertyController::class);
+
+   //Sitesetting route
+   Route::resource('sitesettings', SiteSettingController::class);
+
+   //Sociallinks route
+   Route::resource('social-links', SocialLinkController::class);
+
+   // Frontend Routes
+   Route::view("/member", "frontend.member")->name('member');
+   Route::view("/contact", "frontend.contact")->name('contact');
+   Route::get('/about', [SingleController::class, 'render_about'])->name('about');
+   Route::get('/contact', [SingleController::class, 'render_contact'])->name('contact');
+   Route::get('/blog', [SingleController::class, 'render_blog'])->name('blog');
+   Route::get('/singleblogpost/{id}', [SingleController::class, 'singlePost'])->name('singleblogpost');
+   Route::get('/properties', [SingleController::class, 'render_properties'])->name('properties');
+   Route::get('/singleproperties/{id}', [SingleController::class, 'render_singleProperties'])->name('singleproperties');
+   Route::get('/properties/search', [SearchPropertiesController::class, 'filterProperties'])->name('frontend.searching');
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
 
 
 Route::prefix('/profile')->name('profile.')->middleware(['web', 'auth'])->group(function () {
@@ -249,6 +346,7 @@ Route::prefix('/profile')->name('profile.')->middleware(['web', 'auth'])->group(
     Route::post('/update/info', [App\Http\Controllers\ProfilesController::class, 'updateInfo'])->name('update.info');
     Route::post('/update/password', [App\Http\Controllers\ProfilesController::class, 'updatePassword'])->name('update.password');
 });
+<<<<<<< HEAD
 Route::prefix('services')->name('services.')->group(function () {
     Route::get('/', [ServiceController::class, 'index'])->name('index');
     Route::get('create', [ServiceController::class, 'create'])->name('create');
@@ -262,3 +360,7 @@ Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestF
 Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
+=======
+
+
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e

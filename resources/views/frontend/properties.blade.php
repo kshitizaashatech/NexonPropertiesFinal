@@ -25,44 +25,80 @@
 </section>
 
 
-
-
 {{-- form --}}
-<section class="container-fluid py-4 propertiesfinder">
+<form action="{{ route('frontend.searching') }}" method="GET" class="container-fluid py-5 propertiesfinder">
     <div class="container">
-
-        <h1 class="lg-text1 text-center searchhide" onclick="funsearchingon()">
+        <h1 class="md-text1 text-center searchhide" onclick="funsearchingon()">
             <i class="fa-brands fa-searchengin customicons"></i> Find your properties
         </h1>
-        <div class="justify-content-center align-items-center gap-1 flex-wrap hiddenform" id="hiddenform">
+        <div class="justify-content-center align-items-center gap-2 flex-wrap hiddenform" id="hiddenform">
             <div class="d-flex flex-column col-md-3">
                 <label for="" class="sm-text1 des-text">Listing type</label>
-                <input type="text" class="input bannerinput">
+                <select type="text" class="input bannerinput" name="region" placeholder="Regions"
+                    value="{{ request('region') }}">
+                    <option value="" disabled selected>Select Category</option>
+                    @foreach($categories as $category)
+              <option value="{{ $category->id }}" {{ request('list_type') == $category->id ? 'selected' : '' }}>
+              {{ $category->title }}
+              </option>
+            @endforeach
+                    </select>
             </div>
+
+
             <div class="d-flex flex-column col-md-3">
                 <label for="" class="sm-text1 des-text">Properties type</label>
-                <input type="text" class="input bannerinput">
+                <select type="text" class="input bannerinput" name="region" placeholder="Regions"
+                    value="{{ request('region') }}">
+                    @foreach($subcategories as $subcategory)
+              <option value="{{ $subcategory->id }}" data-category-id="{{ $subcategory->category_id }}"
+              {{ request('property_type') == $subcategory->id ? 'selected' : '' }}>
+              {{ $subcategory->title }}
+              </option>
+            @endforeach</option>
+                    </select>
             </div>
+
             <div class="d-flex flex-column col-md-3">
                 <label for="" class="sm-text1 des-text">Location</label>
-                <input type="text" class="input bannerinput">
+                <select type="text" class="input bannerinput" name="region" placeholder="Regions"
+                    value="{{ request('region') }}">
+                    <option value="1">States</option>
+                    <option value="">
+                      @foreach($properties as $property)
+              @if(!empty($property->state))
+          <option value="{{ $property->state }}" {{ request('state') == $property->state ? 'selected' : '' }}>
+          {{ $property->state }}
+          </option>
+        @endif
+            @endforeach</option>
+                    </select>
             </div>
+
             <div class="d-flex flex-column col-md-3">
                 <label for="" class="sm-text1 des-text">Location</label>
-                <input type="text" class="input bannerinput">
+                <select type="text" class="input bannerinput" name="region" placeholder="Regions"
+                    value="{{ request('region') }}">
+                    <option value="1">regions</option>
+                    <option value="2">Region 1</option>
+                    <option value="3">Region 2</option>
+                    </select>
             </div>
+
             <div class="d-flex flex-column col-md-3">
                 <label for="" class="md-text1 des-text">Price</label>
-                <input type="text" class="input bannerinput">
+                <input type="text" class="input bannerinput" name="location" placeholder="Keyword"
+                    value="{{ request('location') }}">
             </div>
+
             <div class="d-flex flex-column col-md-3">
                 <label for="" class="sm-text1 des-text">Search</label>
-                <button class="btn-buttonyellow btn-buttonyellowlg">Find properties</button>
+                <button type="submit" class="btn-buttonyellow btn-buttonyellowlg">Find properties</button>
             </div>
 
         </div>
     </div>
-</section>
+</form>
 
 
 
@@ -216,20 +252,30 @@
 
 
 <script>
-    function funsearchingon() {
-        const hiddenformdata = document.getElementsByClassName("hiddenform")[0];
-        if (hiddenformdata.style.display === "block") {
-            hiddenformdata.style.display = "none";
-        }
-        hiddenformdata.style.display = "block";
+   function funsearchingon() {
+    const hiddenformdata = document.querySelector(".hiddenform");
 
+    // Toggle the display style
+    if (hiddenformdata.style.display === "none" || hiddenformdata.style.display === "") {
+        hiddenformdata.style.display = "block";
+    } else {
+        hiddenformdata.style.display = "none";
     }
+}
 
     function changepage(clickedElement) {
     // Remove 'next-button' class from all list items
     const allButtons = document.querySelectorAll('.nextli');
     allButtons.forEach(button => button.classList.remove('next-button'));
 
+<<<<<<< HEAD
+=======
+    function changepage(clickedElement) {
+    // Remove 'next-button' class from all list items
+    const allButtons = document.querySelectorAll('.nextli');
+    allButtons.forEach(button => button.classList.remove('next-button'));
+
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
     // Add 'next-button' class to the clicked list item
     clickedElement.classList.add('next-button');
 }

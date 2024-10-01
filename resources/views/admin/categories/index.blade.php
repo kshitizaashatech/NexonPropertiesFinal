@@ -7,7 +7,11 @@
             <div class="card">
                 <div class="card-header">
                     <h4>Categories List</h4>
+<<<<<<< HEAD
                     <a href="{{ route('admin.categories.create') }}" class="btn btn-primary float-end">Add New Category</a>
+=======
+                    <a href="{{ route('categories.create') }}" class="btn btn-primary float-end">Add New Category</a>
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                 </div>
                 <div class="card-body">
                     @if(session('success'))
@@ -33,8 +37,13 @@
                                         <td>{{ $category->title }}</td>
                                         <td>{{ $category->metadata ? $category->metadata->meta_title : 'No Metadata' }}</td>
                                         <td>
+<<<<<<< HEAD
                                             <a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                             <form action="{{ route('admin.categories.destroy', $category->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this category?');">
+=======
+                                            <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                            <form action="{{ route('categories.destroy', $category->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this category?');">
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm">Delete</button>
@@ -55,7 +64,11 @@
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
+<<<<<<< HEAD
                                                                 <form action="{{ route('admin.metadata.update', $category->metadata->id) }}" method="POST">
+=======
+                                                                <form action="{{ route('metadata.update', $category->metadata->id) }}" method="POST">
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                                                                     @csrf
                                                                     @method('PUT')
 
@@ -96,7 +109,11 @@
                         </table>
                     @else
                         <div class="alert alert-info">
+<<<<<<< HEAD
                             No categories available. <a href="{{ route('admin.categories.create') }}">Create a new category</a>.
+=======
+                            No categories available. <a href="{{ route('categories.create') }}">Create a new category</a>.
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                         </div>
                     @endif
                 </div>
@@ -104,4 +121,8 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 @endsection
+=======
+@endsection
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e

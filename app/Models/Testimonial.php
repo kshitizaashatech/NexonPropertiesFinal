@@ -20,4 +20,8 @@ class Testimonial extends Model
         'image' => 'array', // Handle multi-image upload as an array
     ];
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e

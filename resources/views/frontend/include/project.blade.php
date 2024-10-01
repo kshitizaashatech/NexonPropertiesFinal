@@ -54,8 +54,13 @@
 
                 <img src="{{ $mainImage }}" alt="Property Image" class="property-image">
                 <div class="property-details">
+<<<<<<< HEAD
                   <div class="md-text1 p-0 m-0">{{ strlen($property->title)>28 ? substr($property->title,0 ,28) ."..." :$property->title }}</div>
                   <div class="sm-text highlight text-center p-0 m-0"><i class="fa-solid fa-location-dot"></i>{{ $property->country }}-{{ $property->state }}-{{ $property->street }}</div>
+=======
+                  <div class="md-text1 p-0 m-0">{{ $property->title }}</div>
+                  <div class="sm-text highlight text-center p-0 m-0">{{ $property->title }}</div>
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                   <div class="d-flex justify-content-between gap-3 p-0 mx-4">
                     <p class="detail-item sm-text1">
                       <span class="sm-text1">{{ $property->bedrooms }}</span><br />
@@ -113,8 +118,13 @@
           <img src="{{ $mainImage }}" alt="Property Image"
           class="imagecontroller imagecontrollerheight imagecontrollermd " data-src="holder.js/200x250?theme=thumb" />
           <div class="property-details">
+<<<<<<< HEAD
           <div class="md-text1 p-0 m-0"> {{strlen( $firstPropeties->title)>28 ? substr($firstPropeties->title ,0 ,28). "..." :$firstPropeties->title }}</div>
           <div class="md-text highlight text-center p-0 m-0"><i class="fa-solid fa-location-dot mx-1"></i>{{ $firstPropeties->state}}-{{ $firstPropeties->street}}
+=======
+          <div class="md-text1 p-0 m-0"> {{ $firstPropeties->title}}</div>
+          <div class="md-text highlight text-center p-0 m-0">{{ $firstPropeties->state}}-{{ $firstPropeties->street}}
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
           </div>
           <div class="d-flex justify-content-between gap-3 p-0 mx-4">
             <p class="detail-item sm-text1">
@@ -148,7 +158,11 @@
               <img src="{{ $mainImage }}" alt="Property Image" class="property-image">
               <div class="property-details">
                 <div class="md-text1 p-0 m-0">{{ $property->title }}</div>
+<<<<<<< HEAD
                 <div class="sm-text highlight text-center p-0 m-0 "><i class="fa-solid fa-location-dot mx-1"></i>{{$property->country }}-{{$property->state }}-{{$property->street }}</div>
+=======
+                <div class="sm-text highlight text-center p-0 m-0">{{ $property->title }}</div>
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
                 <div class="d-flex justify-content-between gap-3 p-0 mx-4">
                 <p class="detail-item sm-text1">
                   <span class="sm-text1">{{ $property->bedrooms }}</span><br />

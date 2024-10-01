@@ -31,7 +31,11 @@
 </div>
 
     @endforeach
+<<<<<<< HEAD
       <div class="col-md-5 mx-md-4 ">
+=======
+      <div class="col-md-5 mx-md-4">
+>>>>>>> bc57c5079346bc38c5f5131b83ef638abb3e899e
         <div class="title">
           <div class="xs-text dashline">Trusted Real estate Care</div>
           <div class="lg-text1">Dream living Spaces Setting New Build</div>
